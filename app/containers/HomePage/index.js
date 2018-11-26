@@ -18,9 +18,19 @@ import { makeSelectName } from './selectors';
 import reducer from './reducer';
 import saga from './saga';
 import messages from './messages';
+import { getName } from './actions';
+import { saveName } from '../App/actions';
 
 /* eslint-disable react/prefer-stateless-function */
 export class HomePage extends React.Component {
+  addInvitee = e => {
+    e.preventDefault();
+    if (!this.props.name.trim()) {
+      return;
+    }
+    this.props.onInvite(this.props.name);
+  };
+
   render() {
     return (
       <div>
@@ -28,50 +38,39 @@ export class HomePage extends React.Component {
           <title>HomePage</title>
           <meta name="description" content="Description of HomePage" />
         </Helmet>
-        <form id="addNameForm" onSubmit={this.handleInvite}>
+        <form id="addNameForm" onSubmit={this.addInvitee}>
           <label htmlFor="name-field">
             <FormattedMessage {...messages.labelName} />
             <input
               type="text"
               name="name"
               id="name-field"
-              // ref={node => {
-              //   this.input = node;
-              // }}
-              // onChange={this.handleNameInput}
-            />
-          </label>
-          <label htmlFor="rsvp-check">
-            <FormattedMessage {...messages.labelCheckBox} />
-            <input
-              type="checkbox"
-              name="rsvp"
-              id="rsvp-check"
-              // ref={node => {
-              //   this.checkbox = node;
-              // }}
-              // onClick={this.handleRSVPCheck}
+              onChange={this.props.getName}
             />
           </label>
           <input type="submit" value="Invite" className="invite-button" />
         </form>
-        {/* <FormattedMessage {...messages.header} /> */}
       </div>
     );
   }
 }
 
 HomePage.propTypes = {
-  dispatch: PropTypes.func.isRequired,
+  // dispatch: PropTypes.func.isRequired,
+  name: PropTypes.string,
+  getName: PropTypes.func,
+  onInvite: PropTypes.func,
 };
 
 const mapStateToProps = createStructuredSelector({
-  homePage: makeSelectName(),
+  // homePage: selectHomePageDomain(),
+  name: makeSelectName(),
 });
 
 function mapDispatchToProps(dispatch) {
   return {
-    dispatch,
+    getName: e => dispatch(getName(e.target.value)),
+    onInvite: name => dispatch(saveName(name)),
   };
 }
 

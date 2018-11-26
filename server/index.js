@@ -30,6 +30,7 @@ app.use(urlencodedParser);
 app.use(bodyparser.json());
 
 app.post('/api/invitees', (req, res) => {
+  console.log('here');
   const { name } = req.body;
   console.log('name inside api', name);
   model.addName(name, err => {
