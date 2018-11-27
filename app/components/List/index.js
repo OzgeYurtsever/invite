@@ -31,7 +31,7 @@ const List = props => (
 );
 
 List.propTypes = {
-  data: PropTypes.array,
+  data: PropTypes.oneOfType([PropTypes.array, PropTypes.object]),
   onChange: PropTypes.func,
 };
 

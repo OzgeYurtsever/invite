@@ -46,6 +46,7 @@ const appReducer = (state = initialState, action) => {
         .set('error', false)
         .set('data', action.payload.data);
     case GET_INVITEES_FAILURE:
+      return state.set('loading', false).set('error', action.payload.error);
     default:
       return state;
   }

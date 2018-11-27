@@ -1,15 +1,10 @@
 import { call, put, select, takeEvery } from 'redux-saga/effects';
-// import axios from 'axios';
 
 // Individual exports for testing
 import { ADD_INVITEE } from 'containers/App/constants';
 import { nameSaved, saveNameError } from 'containers/App/actions';
 import request from '../../utils/request';
 import { makeSelectName } from './selectors';
-
-// const postName = (url, data) => {
-//   axios.post(url, data).catch(err => err);
-// };
 
 export function* addName() {
   // See example in containers/HomePage/saga.js
