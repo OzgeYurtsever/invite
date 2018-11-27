@@ -5,11 +5,15 @@ import { GET_NAME } from '../constants';
 
 describe('HomePage actions', () => {
   describe('Default Action', () => {
-    it('has a type of DEFAULT_ACTION', () => {
+    it('has a type of GET_NAME', () => {
+      const testData = 'test person';
       const expected = {
         type: GET_NAME,
+        payload: {
+          name: testData,
+        },
       };
-      expect(getName()).toEqual(expected);
+      expect(getName(testData)).toEqual(expected);
     });
   });
 });

@@ -23,13 +23,13 @@ import { saveName } from '../App/actions';
 
 /* eslint-disable react/prefer-stateless-function */
 export class HomePage extends React.Component {
-  addInvitee = e => {
-    e.preventDefault();
-    if (!this.props.name.trim()) {
-      return;
-    }
-    this.props.onInvite(this.props.name);
-  };
+  // addInvitee = e => {
+  //   e.preventDefault();
+  //   if (!this.props.name || !this.props.name.trim()) {
+  //     return;
+  //   }
+  //   this.props.onInvite(this.props.name);
+  // };
 
   render() {
     return (
@@ -38,7 +38,13 @@ export class HomePage extends React.Component {
           <title>HomePage</title>
           <meta name="description" content="Description of HomePage" />
         </Helmet>
-        <form id="addNameForm" onSubmit={this.addInvitee}>
+        <form
+          id="addNameForm"
+          onSubmit={e => {
+            e.preventDefault();
+            this.props.onInvite(this.props.name);
+          }}
+        >
           <label htmlFor="name-field">
             <FormattedMessage {...messages.labelName} />
             <input
@@ -70,7 +76,12 @@ const mapStateToProps = createStructuredSelector({
 function mapDispatchToProps(dispatch) {
   return {
     getName: e => dispatch(getName(e.target.value)),
-    onInvite: name => dispatch(saveName(name)),
+    onInvite: name => {
+      if (!name.trim()) {
+        return;
+      }
+      dispatch(saveName());
+    },
   };
 }
 

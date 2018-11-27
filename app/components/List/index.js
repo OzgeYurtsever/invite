@@ -1,9 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import P from '../P';
-import H3 from '../H3';
-import ListItem from '../ListItem';
-import DIV from '../Div';
+import P from './P';
+import H3 from './H3';
+import ListItem from './ListItem';
+import DIV from './Div';
 
 const List = props => (
   <div>
