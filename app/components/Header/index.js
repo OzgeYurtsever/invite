@@ -1,24 +1,11 @@
-/**
- *
- * Header
- *
- */
+import styled from 'styled-components';
 
-import React from 'react';
-import { NavLink } from 'react-router-dom';
+const Section = styled.section`
+  margin: 3em auto;
+  text-align: center;
+  &:first-child {
+    margin-top: 0;
+  }
+`;
 
-// import { FormattedMessage } from 'react-intl';
-// import messages from './messages';
-
-const Header = () => (
-  <div>
-    <NavLink className="navigation" to="/">
-      Home
-    </NavLink>
-    <NavLink className="navigation" to="/invitees">
-      Invitee List
-    </NavLink>
-  </div>
-);
-
-export default Header;
+export default Section;

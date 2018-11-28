@@ -13,12 +13,12 @@ export default defineMessages({
     id: `${scope}.nameLabel`,
     defaultMessage: 'Name:',
   },
-  labelCheckBox: {
-    id: `${scope}.RSVPLabel`,
-    defaultMessage: 'RSVP:',
+  header: {
+    id: `${scope}.homePageHaader`,
+    defaultMessage: 'Plan your event, who is coming?',
   },
-  button: {
-    id: `${scope}.inviteButton`,
-    defaultMessage: 'Invite',
+  subHeader: {
+    id: `${scope}.homePageSubHaader`,
+    defaultMessage: 'Create your invitee list!',
   },
 });

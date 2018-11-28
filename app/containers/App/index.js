@@ -12,7 +12,7 @@ import { Switch, Route } from 'react-router-dom';
 
 import HomePage from 'containers/HomePage/Loadable';
 import InviteeList from 'containers/InviteeList/Loadable';
-import Header from 'components/Header';
+import Navigation from 'components/Navigation';
 import NotFoundPage from 'containers/NotFoundPage/Loadable';
 
 import GlobalStyle from '../../global-styles';
@@ -20,7 +20,7 @@ import GlobalStyle from '../../global-styles';
 export default function App() {
   return (
     <div>
-      <Header />
+      <Navigation />
       <Switch>
         <Route exact path="/" component={HomePage} />
         <Route exact path="/invitees" component={InviteeList} />
