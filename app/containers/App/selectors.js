@@ -13,11 +13,11 @@ const makeSelectError = () =>
 const makeSelectSaving = () =>
   createSelector(selectGlobal, globalState => globalState.get('saving'));
 
-const makeSelectCount = () =>
-  createSelector(selectGlobal, globalState => globalState.get('count'));
+// const makeSelectCount = () =>
+//   createSelector(selectGlobal, globalState => globalState.get('count'));
 
-const makeSelectData = () =>
-  createSelector(selectGlobal, globalState => globalState.get('data'));
+// const makeSelectData = () =>
+//   createSelector(selectGlobal, globalState => globalState.get('data'));
 
 const makeSelectLocation = () =>
   createSelector(selectRouter, routerState =>
@@ -29,6 +29,6 @@ export {
   makeSelectError,
   makeSelectLoading,
   makeSelectSaving,
-  makeSelectCount,
-  makeSelectData,
+  // makeSelectCount,
+  // makeSelectData,
 };

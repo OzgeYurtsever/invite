@@ -1,9 +1,10 @@
 import styled from 'styled-components';
 
-const H4 = styled.h4`
+const P = styled.p`
   font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
   color: #4d0000;
-  margin-bottom: 3em;
+  text-align: center;
+  margin-top: 2em;
 `;
 
-export default H4;
+export default P;

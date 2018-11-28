@@ -15,6 +15,7 @@ import { compose } from 'redux';
 import injectSaga from 'utils/injectSaga';
 import injectReducer from 'utils/injectReducer';
 import { makeSelectName } from './selectors';
+import { makeSelectError, makeSelectSaving } from '../App/selectors';
 import reducer from './reducer';
 import saga from './saga';
 import messages from './messages';
@@ -26,6 +27,7 @@ import H2 from '../../components/H2';
 import Button from './Button';
 import Label from './label';
 import Input from './input';
+import P from './P';
 
 /* eslint-disable react/prefer-stateless-function */
 export class HomePage extends React.Component {
@@ -61,10 +63,15 @@ export class HomePage extends React.Component {
                 onChange={this.props.getName}
               />
             </Label>
-            <Button>Invite</Button>
+            <Button>
+              <FormattedMessage {...messages.button} />
+            </Button>
             {/* <input type="submit" value="Invite" className="invite-button" /> */}
           </form>
         </Section>
+        <P>
+          {this.props.error ? <FormattedMessage {...messages.error} /> : null}
+        </P>
       </div>
     );
   }
@@ -72,12 +79,16 @@ export class HomePage extends React.Component {
 
 HomePage.propTypes = {
   name: PropTypes.string,
+  error: PropTypes.oneOfType([PropTypes.object, PropTypes.bool]),
+  saving: PropTypes.bool,
   getName: PropTypes.func,
   onInvite: PropTypes.func,
 };
 
 const mapStateToProps = createStructuredSelector({
   name: makeSelectName(),
+  saving: makeSelectSaving(),
+  error: makeSelectError(),
 });
 
 export function mapDispatchToProps(dispatch) {
