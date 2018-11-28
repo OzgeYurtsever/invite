@@ -23,14 +23,6 @@ import { saveName } from '../App/actions';
 
 /* eslint-disable react/prefer-stateless-function */
 export class HomePage extends React.Component {
-  // addInvitee = e => {
-  //   e.preventDefault();
-  //   if (!this.props.name || !this.props.name.trim()) {
-  //     return;
-  //   }
-  //   this.props.onInvite(this.props.name);
-  // };
-
   render() {
     return (
       <div>
@@ -41,8 +33,7 @@ export class HomePage extends React.Component {
         <form
           id="addNameForm"
           onSubmit={e => {
-            e.preventDefault();
-            this.props.onInvite(this.props.name);
+            this.props.onInvite(e, this.props.name);
           }}
         >
           <label htmlFor="name-field">
@@ -51,6 +42,9 @@ export class HomePage extends React.Component {
               type="text"
               name="name"
               id="name-field"
+              ref={node => {
+                this.input = node;
+              }}
               onChange={this.props.getName}
             />
           </label>
@@ -62,25 +56,28 @@ export class HomePage extends React.Component {
 }
 
 HomePage.propTypes = {
-  // dispatch: PropTypes.func.isRequired,
   name: PropTypes.string,
   getName: PropTypes.func,
   onInvite: PropTypes.func,
 };
 
 const mapStateToProps = createStructuredSelector({
-  // homePage: selectHomePageDomain(),
   name: makeSelectName(),
 });
 
-function mapDispatchToProps(dispatch) {
+export function mapDispatchToProps(dispatch) {
   return {
-    getName: e => dispatch(getName(e.target.value)),
-    onInvite: name => {
-      if (!name.trim()) {
+    getName: e => {
+      dispatch(getName(e.target.value));
+    },
+    onInvite: (e, name) => {
+      e.preventDefault();
+      if (!name || !name.trim()) {
         return;
       }
       dispatch(saveName());
+      dispatch(getName(''));
+      e.target.reset();
     },
   };
 }

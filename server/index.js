@@ -21,7 +21,6 @@ const bodyparser = require('body-parser');
 // app.use('/api', myApi);
 
 app.use((req, res, next) => {
-  console.log(req.method, req.path);
   next();
 });
 
@@ -30,9 +29,7 @@ app.use(urlencodedParser);
 app.use(bodyparser.json());
 
 app.post('/api/invitees', (req, res) => {
-  console.log('here');
   const { name } = req.body;
-  console.log('name inside api', name);
   model.addName(name, err => {
     if (err) {
       res.send(err);
