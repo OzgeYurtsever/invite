@@ -14,6 +14,10 @@ const selectInviteeListDomain = state => state.get('inviteeList', initialState);
 /**
  * Default selector used by InviteeList
  */
+
+const makeSelectError = () =>
+  createSelector(selectInviteeListDomain, subState => subState.get('error'));
+
 const makeSelectData = () =>
   createSelector(selectInviteeListDomain, subState => subState.get('data'));
 
@@ -21,4 +25,4 @@ const makeSelectData = () =>
 //   createSelector(selectInviteeListDomain, substate => substate.toJS());
 
 // export default makeSelectInviteeList;
-export { selectInviteeListDomain, makeSelectData };
+export { selectInviteeListDomain, makeSelectData, makeSelectError };

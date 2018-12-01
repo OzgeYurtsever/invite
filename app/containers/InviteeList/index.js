@@ -7,7 +7,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { Helmet } from 'react-helmet';
 import { FormattedMessage } from 'react-intl';
 import { createStructuredSelector } from 'reselect';
 import { compose } from 'redux';
@@ -15,8 +14,8 @@ import { compose } from 'redux';
 import injectSaga from 'utils/injectSaga';
 import injectReducer from 'utils/injectReducer';
 import List from 'components/List';
-import { makeSelectData } from './selectors';
-import { makeSelectError, makeSelectLoading } from '../App/selectors';
+import { makeSelectData, makeSelectError } from './selectors';
+import { makeSelectLoading } from '../App/selectors';
 import { getInvitees } from './actions';
 import reducer from './reducer';
 import saga from './saga';
@@ -35,10 +34,10 @@ export class InviteeList extends React.Component {
   render() {
     return (
       <div>
-        <Helmet>
+        {/* <Helmet>
           <title>InviteeList</title>
           <meta name="description" content="Description of InviteeList" />
-        </Helmet>
+        </Helmet> */}
         <Section>
           <H2>
             <FormattedMessage {...messages.header} />

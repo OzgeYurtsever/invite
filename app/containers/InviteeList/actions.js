@@ -23,9 +23,7 @@ const inviteesReceived = data => ({
 
 const getInviteesError = error => ({
   type: GET_INVITEES_FAILURE,
-  payload: {
-    error,
-  },
+  payload: error,
 });
 
 export { getInvitees, inviteesReceived, getInviteesError };

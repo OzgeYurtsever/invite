@@ -43,6 +43,7 @@ app.get('/api/invitees', (req, res) => {
     if (err) {
       res.status(500).send(err);
     }
+
     res.json(data);
   });
 });

@@ -2,6 +2,7 @@ import {
   ADD_INVITEE,
   ADD_INVITEE_SUCCESS,
   ADD_INVITEE_FAILURE,
+  APP_FAILURE,
 } from './constants';
 
 const saveName = () => ({
@@ -22,4 +23,11 @@ const saveNameError = error => ({
   },
 });
 
-export { saveName, saveNameError, nameSaved };
+const appError = error => ({
+  type: APP_FAILURE,
+  payload: {
+    error,
+  },
+});
+
+export { saveName, saveNameError, nameSaved, appError };

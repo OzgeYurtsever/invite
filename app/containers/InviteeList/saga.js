@@ -5,8 +5,13 @@ import { inviteesReceived, getInviteesError } from './actions';
 // Individual exports for testing
 export function* getListData() {
   try {
-    const data = yield fetch('/api/invitees').then(response => response.json());
-    yield put(inviteesReceived(data));
+    const response = yield fetch('/api/invitees');
+    const result = yield response.json();
+    if (response.ok) {
+      yield put(inviteesReceived(result));
+    } else {
+      throw result;
+    }
   } catch (err) {
     yield put(getInviteesError(err));
   }
