@@ -48,16 +48,6 @@ app.get('/api/invitees', (req, res) => {
   });
 });
 
-app.put('/api/invitees/:id', (req, res) => {
-  const { hasConfirmed } = req.body;
-  model.updateConfirmation(req.params.id, hasConfirmed, err => {
-    if (err) {
-      res.send(err);
-    }
-    res.status(202).json({ message: 'updated rsvp!' });
-  });
-});
-
 // In production we need to pass these values in instead of relying on webpack
 setup(app, {
   outputPath: resolve(process.cwd(), 'build'),

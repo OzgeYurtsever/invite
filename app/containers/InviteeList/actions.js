@@ -1,9 +1,3 @@
-/*
- *
- * InviteeList actions
- *
- */
-
 import {
   GET_INVITEES,
   GET_INVITEES_SUCCESS,

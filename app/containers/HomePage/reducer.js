@@ -1,9 +1,3 @@
-/*
- *
- * HomePage reducer
- *
- */
-
 import { fromJS } from 'immutable';
 import { GET_NAME } from './constants';
 

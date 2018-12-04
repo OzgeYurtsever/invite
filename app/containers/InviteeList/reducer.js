@@ -1,9 +1,3 @@
-/*
- *
- * InviteeList reducer
- *
- */
-
 import { fromJS } from 'immutable';
 import {
   GET_INVITEES,

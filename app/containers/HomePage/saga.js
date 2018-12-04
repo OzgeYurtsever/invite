@@ -1,13 +1,11 @@
 import { call, put, select, takeEvery } from 'redux-saga/effects';
 
-// Individual exports for testing
 import { ADD_INVITEE } from 'containers/App/constants';
 import { nameSaved, saveNameError } from 'containers/App/actions';
 import request from '../../utils/request';
 import { makeSelectName } from './selectors';
 
 export function* addName() {
-  // See example in containers/HomePage/saga.js
   const name = yield select(makeSelectName());
   const postUrl = '/api/invitees';
   const init = {

@@ -2,9 +2,6 @@ import React from 'react';
 import { shallow } from 'enzyme';
 import { getName } from '../actions';
 import { saveName } from '../../App/actions';
-
-// import { enzymeFind } from 'styled-components/test-utils';
-
 import { HomePage, mapDispatchToProps } from '../index';
 
 describe('<HomePage />', () => {
@@ -14,6 +11,14 @@ describe('<HomePage />', () => {
     home = shallow(
       <HomePage name="" getName={() => {}} onInvite={mockAddNamefn} />,
     );
+  });
+
+  it('should render the header', () => {
+    expect(home.find('.header').length).toBe(1);
+  });
+
+  it('should render the sub header', () => {
+    expect(home.find('.sub-header').length).toBe(1);
   });
 
   it('should render with an empty name field', () => {

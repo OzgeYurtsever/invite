@@ -1,16 +1,15 @@
-/*
- * Header Messages
- *
- * This contains all the text for the Header component.
- */
-
 import { defineMessages } from 'react-intl';
 
-export const scope = 'app.components.Header';
+export const scope = 'app.components.Navigation';
 
 export default defineMessages({
-  header: {
-    id: `${scope}.header`,
-    defaultMessage: 'This is the Header component!',
+  home: {
+    id: `${scope}.home`,
+    defaultMessage: 'Home',
+  },
+
+  list: {
+    id: `${scope}.list`,
+    defaultMessage: 'Invitee List',
   },
 });

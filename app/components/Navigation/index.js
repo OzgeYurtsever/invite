@@ -1,22 +1,16 @@
-/**
- *
- * Header
- *
- */
-
 import React from 'react';
+import { FormattedMessage } from 'react-intl';
 import Link from './Link';
 import Navbar from './Navbar';
-// import { FormattedMessage } from 'react-intl';
-// import messages from './messages';
+import messages from './messages';
 
 const Navigation = () => (
   <Navbar>
     <Link className="navigation" to="/">
-      Home
+      <FormattedMessage {...messages.home} />
     </Link>
     <Link className="navigation" to="/invitees">
-      Invitee List
+      <FormattedMessage {...messages.list} />
     </Link>
   </Navbar>
 );

@@ -2,7 +2,6 @@ import { put, takeLatest } from 'redux-saga/effects';
 import { GET_INVITEES } from './constants';
 import { inviteesReceived, getInviteesError } from './actions';
 
-// Individual exports for testing
 export function* getListData() {
   try {
     const response = yield fetch('/api/invitees');

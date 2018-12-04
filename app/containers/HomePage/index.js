@@ -1,9 +1,3 @@
-/**
- *
- * HomePage
- *
- */
-
 import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
@@ -36,14 +30,13 @@ export class HomePage extends React.Component {
       <div>
         <Helmet>
           <title>HomePage</title>
-          <meta name="description" content="Description of HomePage" />
         </Helmet>
         <Section>
-          <H2>
-            <FormattedMessage {...messages.header} />{' '}
+          <H2 className="header">
+            <FormattedMessage {...messages.header} />
           </H2>
-          <H4>
-            <FormattedMessage {...messages.subHeader} />{' '}
+          <H4 className="sub-header">
+            <FormattedMessage {...messages.subHeader} />
           </H4>
           <form
             id="addNameForm"
@@ -63,10 +56,9 @@ export class HomePage extends React.Component {
                 onChange={this.props.getName}
               />
             </Label>
-            <Button>
+            <Button className="invite-button">
               <FormattedMessage {...messages.button} />
             </Button>
-            {/* <input type="submit" value="Invite" className="invite-button" /> */}
           </form>
         </Section>
         <P>

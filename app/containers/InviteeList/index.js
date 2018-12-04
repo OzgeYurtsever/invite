@@ -1,12 +1,7 @@
-/**
- *
- * InviteeList
- *
- */
-
 import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
+import { Helmet } from 'react-helmet';
 import { FormattedMessage } from 'react-intl';
 import { createStructuredSelector } from 'reselect';
 import { compose } from 'redux';
@@ -25,7 +20,6 @@ import H2 from '../../components/H2';
 
 import Section from '../../components/Header';
 
-/* eslint-disable react/prefer-stateless-function */
 export class InviteeList extends React.Component {
   componentDidMount() {
     this.props.getList();
@@ -34,10 +28,9 @@ export class InviteeList extends React.Component {
   render() {
     return (
       <div>
-        {/* <Helmet>
-          <title>InviteeList</title>
-          <meta name="description" content="Description of InviteeList" />
-        </Helmet> */}
+        <Helmet>
+          <title>Invitee List</title>
+        </Helmet>
         <Section>
           <H2>
             <FormattedMessage {...messages.header} />

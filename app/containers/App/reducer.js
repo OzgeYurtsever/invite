@@ -4,16 +4,8 @@ import {
   ADD_INVITEE,
   ADD_INVITEE_SUCCESS,
   ADD_INVITEE_FAILURE,
-  APP_FAILURE,
-  // GET_COUNT,
-  // GET_COUNT_SUCCESS,
-  // GET_COUNT_FAILURE,
-  // GET_INVITEES,
-  // GET_INVITEES_SUCCESS,
-  // GET_INVITEES_FAILURE,
 } from './constants';
 
-// The initial state of the App
 const initialState = fromJS({
   loading: false,
   saving: false,
@@ -29,8 +21,6 @@ const appReducer = (state = initialState, action) => {
     case ADD_INVITEE_SUCCESS:
       return state.set('saving', false).set('error', false);
     case ADD_INVITEE_FAILURE:
-      return state.set('saving', false).set('error', action.payload.error);
-    case APP_FAILURE:
       return state.set('saving', false).set('error', action.payload.error);
     default:
       return state;
